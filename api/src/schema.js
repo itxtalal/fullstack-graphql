@@ -25,7 +25,20 @@ const typeDefs = gql`
       pets(input: PetInput): [Pet]!
       pet(input: PetInput): Pet
   }
+
+  input newPetInput {
+    name: String!
+    type: String!
+  }
+
+  type Mutation {
+      newPet(input: newPetInput): Pet!
+  }
 `;
+
+// Return Type of newPet() is NotNull
+// It means if the Mutation returns something, it must be Pet object
+// Otherwise the error is thrown directly if Pet Creation Fails
 
 // Top level resolvers are of fields in "type Query"
 

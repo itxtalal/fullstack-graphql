@@ -17,9 +17,16 @@ module.exports = {
       return models.Pet.findOne(input)
     }
   },
-  // Mutation: {
-    
-  // },
+
+  // Return the mutated object after mutation, 
+  // Apollo Server needs to update its cache for data consistency
+
+  Mutation: {
+    newPet(_, {input}, ctx) {
+      const pet = ctx.models.Pet.create(input)
+      return pet
+    }
+  },
   // Pet: {
   //   img(pet) {
   //     return pet.type === 'DOG'
