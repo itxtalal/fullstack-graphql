@@ -3,11 +3,19 @@
  * the type definitions in your scheama
  */
 
+/**
+* GRAPHQL has default resovlers for every field of Types
+* Thats Why we can get fields by Querying without writing
+* any field level resolvers
+ */
 module.exports = {
   Query: {
     pets(_, {input}, {models}) {
       return models.Pet.findMany(input || {})
     },
+    pet(_, {input}, {models}) {
+      return models.Pet.findOne(input)
+    }
   },
   // Mutation: {
     

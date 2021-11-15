@@ -16,9 +16,17 @@ const typeDefs = gql`
       type: String!
   }
 
+  input PetInput {
+      name: String
+      type: String
+  }
+
   type Query {
-      pets: [Pet]!
+      pets(input: PetInput): [Pet]!
+      pet(input: PetInput): Pet
   }
 `;
+
+// Top level resolvers are of fields in "type Query"
 
 module.exports = typeDefs
