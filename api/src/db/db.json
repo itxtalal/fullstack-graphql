@@ -1,32 +1,36 @@
 {
   "user": {
     "id": "jBWMVGjm50l6LGwepDoty",
-    "username": "frontendmaster"
+    "username": "Talal"
   },
   "pet": [
     {
       "id": "1",
       "createdAt": "15112021",
       "name": "Moose",
-      "type": "Dog"
+      "type": "Dog",
+      "user": "jBWMVGjm50l6LGwepDoty"
     },
     {
       "id": "2",
       "createdAt": "15112021",
       "name": "Fluffy",
-      "type": "Cat"
+      "type": "Cat",
+      "user": "jBWMVGjm50l6LGwepDoty"
     },
     {
       "id": "40oh8gi0F4ZrUMF7AJGU3",
       "createdAt": 1636984103968,
       "name": "Sniffle",
-      "type": "Cat"
+      "type": "Cat",
+      "user": "jBWMVGjm50l6LGwepDoty"
     },
     {
       "id": "bCJG4-e6yvgH-lDzGACia",
       "createdAt": 1636984184128,
       "name": "Sniffle",
-      "type": "Cat"
+      "type": "Cat",
+      "user": "jBWMVGjm50l6LGwepDoty"
     }
   ]
 }

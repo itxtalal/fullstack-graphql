@@ -10,10 +10,12 @@
  */
 module.exports = {
   Query: {
+
     pets(_, {input}, {models}) {
       return models.Pet.findMany(input || {})
     },
     pet(_, {input}, {models}) {
+      console.log("QUERY => pet")
       return models.Pet.findOne(input)
     }
   },
@@ -27,14 +29,30 @@ module.exports = {
       return pet
     }
   },
-  // Pet: {
+
+  // Field Level Resolvers
+  Pet: {
+    owner(_, __, ctx) {
+      console.log('Pet => owner')
+      // return ctx.models.User.findById(pet.user)
+      return ctx.models.User.findOne()
+    }
   //   img(pet) {
   //     return pet.type === 'DOG'
   //       ? 'https://placedog.net/300/300'
   //       : 'http://placekitten.com/300/300'
   //   }
-  // },
-  // User: {
-    
-  // }
+  },
+  User: {
+    // Passing user or _ in the first argument means the same
+    // Field Resolvers call the Query resolvers for Type (User) first
+    // Then they resolve the fields
+    pets(user, __, ctx) {
+      console.log("User => pets")
+      // Returning all the Pets for now
+      // As the database has only one user
+      // No logic implemented for finding pets of specific user
+      return ctx.models.Pet.findMany()
+    }
+  }
 }
